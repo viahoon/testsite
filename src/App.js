@@ -1,13 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import About from "./routes/About";
+import Home from "./routes/Home";
+import Contact from "./routes/Contact";
+import Navigation from "./components/Navigation";
 
 function App() {
   return (
-    <div className="App">
-      <h1>안녕하세요.</h1>
-      <h1>쉬운게 하나도 없군요.</h1>
-    </div>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Navigation />
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/contact" component={Contact} />
+    </BrowserRouter>
   );
 }
 
